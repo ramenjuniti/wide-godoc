@@ -1,0 +1,27 @@
+{
+  "manifest_version": 2,
+  "name": "Wide GoDoc",
+  "author": "ramenjuniti",
+  "description": "Dynamically expand the width of GoDoc",
+  "version": "0.0.1",
+  "homepage_url": "https://github.com/ramenjuniti/wide-godoc",
+  "browser_action": {
+    "default_title": "Wide GoDoc"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://godoc.org/*"
+      ],
+      "js": [
+        "contentScript.js"
+      ]
+    }
+  ],
+  "background": {
+    "persistent": false,
+    "scripts": [
+      "background.js"
+    ]
+  }
+}
