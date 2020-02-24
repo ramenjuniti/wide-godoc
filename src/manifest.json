@@ -3,7 +3,7 @@
   "name": "Wide GoDoc",
   "author": "ramenjuniti",
   "description": "Dynamically expand the width of GoDoc",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "homepage_url": "https://github.com/ramenjuniti/wide-godoc",
   "icons": {
     "128": "icon.png"
