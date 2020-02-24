@@ -1,29 +1,57 @@
-var header = document.querySelector("body > nav > div")
+var host = location.hostname
 
-document.querySelector("body > div.container").setAttribute("id", "main")
-var main = document.querySelector("body > div#main")
+// godoc.org
+var gdHeader
+var gdMain
+var gdFooter
 
-var footer = document.querySelector("body > div#x-footer")
+// pkg.go.dev
+var pgdHeader
+var pgdMainContainer
+var pgdMainContent
+var pgdFooter
+
+if (host === "godoc.org") {
+    gdHeader = document.querySelector("body > nav > div")
+    document.querySelector("body > div.container").setAttribute("id", "main")
+    gdMain = document.querySelector("body > div#main")
+    gdFooter = document.querySelector("body > div#x-footer")
+} else {
+    pgdHeader = document.querySelector("div.Header")
+    pgdMainContainer = document.querySelector("div.Container")
+    pgdMainContent = document.querySelector("div.DetailsContent")
+    pgdFooter = document.querySelector("div.Footer-links ")
+}
 
 function toggle(message) {
     if (message.wide) {
-        header.classList.remove("container")
-        header.classList.add("container-fluid")
-
-        main.classList.remove("container")
-        main.classList.add("container-fluid")
-
-        footer.classList.remove("container")
-        footer.classList.add("container-fluid")
+        if (host === "godoc.org") {
+            gdHeader.classList.remove("container")
+            gdHeader.classList.add("container-fluid")
+            gdMain.classList.remove("container")
+            gdMain.classList.add("container-fluid")
+            gdFooter.classList.remove("container")
+            gdFooter.classList.add("container-fluid")
+        } else {
+            pgdHeader.classList.add("wide-godoc")
+            pgdMainContainer.classList.add("wide-godoc")
+            pgdMainContent.classList.add("wide-godoc")
+            pgdFooter.classList.add("wide-godoc")
+        }
     } else {
-        header.classList.add("container")
-        header.classList.remove("container-fluid")
-
-        main.classList.add("container")
-        main.classList.remove("container-fluid")
-
-        footer.classList.add("container")
-        footer.classList.remove("container-fluid")
+        if (host === "godoc.org") {
+            gdHeader.classList.add("container")
+            gdHeader.classList.remove("container-fluid")
+            gdMain.classList.add("container")
+            gdMain.classList.remove("container-fluid")
+            gdFooter.classList.add("container")
+            gdFooter.classList.remove("container-fluid")
+        } else {
+            pgdHeader.classList.remove("wide-godoc")
+            pgdMainContainer.classList.remove("wide-godoc")
+            pgdMainContent.classList.remove("wide-godoc")
+            pgdFooter.classList.remove("wide-godoc")
+        }
     }
 }
 
